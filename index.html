@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Application</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Container de Login -->
+  <div id="loginContainer">
+    <img src="logo.png" alt="Logo" class="logo">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  
+  <div id="chatContainer" style="display: none">
+    <img src="logo.png" alt="Logo" class="logo">
+    <h2>Chat</h2>
+    <div id="messagesContainer">
+      <div id="messages"></div>
+    </div>
+    <form id="chatForm">
+      <input type="text" id="message" placeholder="Enter your message" required>
+      <button type="submit">Send</button>
+    </form>
+    <div class="button-container">
+    <button id="logoutButton">Logout</button>
+    <button id="historyButton">Show History</button>
+  </div>
+    <div id="historyContainer" style="display: none">
+      <!-- Histórico das mensagens será exibido aqui -->
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
