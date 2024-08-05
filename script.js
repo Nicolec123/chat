@@ -45,6 +45,9 @@ document.getElementById("chatForm").addEventListener("submit", async (event) => 
   const message = document.getElementById("message").value;
   const token = localStorage.getItem("access_token");
 
+  // Mostrar o GIF de carregamento
+  document.getElementById("loadingGif").style.display = "block";
+
   try {
     const response = await fetch(
       "https://hmlg.portalbeneficiocerto.com.br/chat_certo/ai/chat_certo",
@@ -93,6 +96,9 @@ document.getElementById("chatForm").addEventListener("submit", async (event) => 
   } catch (error) {
     console.error("Failed to send message:", error.message);
     alert("Falha ao enviar mensagem, tente novamente! ");
+  }  finally {
+    // Ocultar o GIF de carregamento
+    document.getElementById("loadingGif").style.display = "none";
   }
 });
 
