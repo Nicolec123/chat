@@ -7,52 +7,48 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Container de Login -->
-  <div id="loginContainer">
-    <img src="logo.png" alt="Logo" class="logo">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <input type="text" id="username" placeholder="Username" required>
-      <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
-  </div>
-  
-  <!-- Container de Chat -->
-  <div id="chatContainer" style="display: none">
-    <div id="logoPlaquinhaContainer">
-      <img src="logo.png" alt="Logo" class="chat-logo">
-      <img src="odaplaquinha.gif" id="plaquinhaGif" alt="plaquinha" style="cursor: pointer;">
+  <body>
+    <!-- Container de Login -->
+    <div id="loginContainer">
+      <img src="logo.png" alt="Logo" class="logo">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
     </div>
-    
-    <div class="carousel-container" id="carousel" style="display: none;">
-      <div class="carousel">
-        <img src="oqueseapresenta.gif" id="apresentaGif" alt="apresenta" class="carousel-image">
-        <img src="exemplos.gif" id="exemplosGif" alt="exemplos" class="carousel-image" style="display: none;">
-        <button class="carousel-button left" id="prevButton">❮</button>
-        <button class="carousel-button right" id="nextButton">❯</button>
-        <button class="carousel-button close" id="closeButton">✖</button>
+    <div id="chatContainer" style="display: none">
+      <div id="logoPlaquinhaContainer">
+    <img src="logo.png" alt="Logo" class="logo chat-logo">
+        <img src="odaplaquinha2.gif" id="plaquinhaGif" alt="plaquinha">
+    </div>
+      <div class="carousel-container" id="carousel">
+        <div class="carousel">
+          <img src="oqueseapresenta.gif" id="apresentaGif" alt="apresenta">
+          <img src="exemplos.gif" id="exemplosGif" alt="exemplos" style="display: none;">
+          <button class="carousel-button left" id="prevButton">❮</button>
+          <button class="carousel-button right" id="nextButton">❯</button>
+          <button class="carousel-button close" id="closeButton">X</button>
+        </div>
       </div>
+      <h2>Chat Certo!</h2>
+      <div id="messagesContainer">
+        <div id="messages"></div>
+      </div>
+      <form id="chatForm">
+        <input type="text" id="message" placeholder="Enter your message" required>
+        <button type="submit">Send</button>
+      </form>
+      <div class="button-container">
+        <button id="logoutButton">Logout</button>
+        <button id="historyButton">Show History</button>
+      </div>
+      <div id="historyContainer" style="display: none">
+        <!-- Histórico das mensagens será exibido aqui -->
+      </div>
+      <img id="loadingGif" src="loading.gif" alt="Loading" style="display: none;">
     </div>
-    
-    <h2>Chat Certo!</h2>
-    <div id="messagesContainer">
-      <div id="messages"></div>
-    </div>
-    <form id="chatForm">
-      <input type="text" id="message" placeholder="Enter your message" required>
-      <button type="submit">Send</button>
-    </form>
-    <div class="button-container">
-      <button id="logoutButton">Logout</button>
-      <button id="historyButton">Show History</button>
-    </div>
-    <div id="historyContainer" style="display: none">
-      <!-- Histórico das mensagens será exibido aqui -->
-    </div>
-    <img id="loadingGif" src="loading.gif" alt="Loading" style="display: none;">
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+    <script src="script.js"></script>
+  </body>
+  </html>
