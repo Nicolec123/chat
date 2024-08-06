@@ -18,9 +18,24 @@
     </form>
   </div>
   
+  <!-- Container de Chat -->
   <div id="chatContainer" style="display: none">
-    <img src="logo.png" alt="Logo" class="logo">
-    <h2>Chat</h2>
+    <div id="logoPlaquinhaContainer">
+      <img src="logo.png" alt="Logo" class="chat-logo">
+      <img src="odaplaquinha.gif" id="plaquinhaGif" alt="plaquinha" style="cursor: pointer;">
+    </div>
+    
+    <div class="carousel-container" id="carousel" style="display: none;">
+      <div class="carousel">
+        <img src="oqueseapresenta.gif" id="apresentaGif" alt="apresenta" class="carousel-image">
+        <img src="exemplos.gif" id="exemplosGif" alt="exemplos" class="carousel-image" style="display: none;">
+        <button class="carousel-button left" id="prevButton">❮</button>
+        <button class="carousel-button right" id="nextButton">❯</button>
+        <button class="carousel-button close" id="closeButton">✖</button>
+      </div>
+    </div>
+    
+    <h2>Chat Certo!</h2>
     <div id="messagesContainer">
       <div id="messages"></div>
     </div>
@@ -29,16 +44,15 @@
       <button type="submit">Send</button>
     </form>
     <div class="button-container">
-    <button id="logoutButton">Logout</button>
-    <button id="historyButton">Show History</button>
-  </div>
+      <button id="logoutButton">Logout</button>
+      <button id="historyButton">Show History</button>
+    </div>
     <div id="historyContainer" style="display: none">
       <!-- Histórico das mensagens será exibido aqui -->
     </div>
+    <img id="loadingGif" src="loading.gif" alt="Loading" style="display: none;">
   </div>
-</div>
-<img id="loadingGif" src="loading.gif" alt="Loading" style="display: none;">
-</div
+
   <script src="script.js"></script>
 </body>
 </html>
