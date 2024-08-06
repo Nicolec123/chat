@@ -166,30 +166,6 @@ document.getElementById("logoutButton").addEventListener("click", () => {
   document.getElementById("loginContainer").style.display = "block";
   document.getElementById("chatContainer").style.display = "none";
 });
-// Clique no botão de exportar CSV
-document.getElementById("exportCsvButton").addEventListener("click", () => {
-  let csvContent = "data:text/csv;charset=utf-8,";
-  messagesHistory.forEach((message) => {
-    if (message.type === 'bot') { // Exportar apenas respostas da API
-      const formattedContent = message.content.replace(/<table>/g, '')
-                                              .replace(/<\/table>/g, '')
-                                              .replace(/<tr>/g, '')
-                                              .replace(/<\/tr>/g, '\n')
-                                              .replace(/<td>/g, '')
-                                              .replace(/<\/td>/g, ';')
-                                              .replace(/\n+/g, '\n')
-                                              .trim();
-      csvContent += `${formattedContent.replace(/\n/g, ' ').replace(/;/g, ',')}\n`;
-    }
-  });
-  const encodedUri = encodeURI(csvContent);
-  const link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
-  link.setAttribute("download", "chat_history.csv");
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-});
 // Exibir o carrossel com as imagens de exemplo
 document.getElementById("plaquinhaGif").addEventListener("click", () => {
   document.getElementById("carousel").style.display = "flex";
