@@ -1,77 +1,48 @@
-table {
-  width: 100%;
+table td {
+  padding: 10px; /* Adiciona 10px de espaçamento dentro das células */
 }
 .carousel-container {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px; /* Padding reduzido */
-  z-index: 1000;
-  display: none; /* Inicialmente escondido */
-  width: 100%; /* Ajustado para 80% da largura da tela */
-  max-width: 1250px; /* Limita a largura máxima a 800px */
-  height: auto; /* Altura automática para ajustar ao conteúdo */
-  overflow: hidden; /* Garante que o conteúdo não ultrapasse o contêiner */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Carrossel */
 .carousel {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Alinha as imagens ao centro */
-  height: 700px; /* Define uma altura fixa para o carrossel */
-  overflow: hidden; /* Garante que o conteúdo não ultrapasse o contêiner */
-  text-align: center;
+  width: 80%;
+  max-width: 800px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-/* Imagens do carrossel */
-.carousel-image {
-  width: auto; /* Ajusta a largura das imagens para caber no carrossel */
-  max-width: 100%; /* Limita a largura máxima para 100% do contêiner */
-  height: auto; /* Ajusta a altura das imagens para manter a proporção */
-  display: none; /* Imagens inicialmente escondidas */
-  margin: auto; /* Centraliza a imagem horizontalmente */
-}
-/* Media Queries para Responsividade */
-
-/* Para telas pequenas */
-@media (max-width: 768px) {
-  .carousel-container {
-    width: 90%; /* Ajusta a largura para 90% da tela em dispositivos menores */
-  }
-
-  .carousel {
-    height: 500px; /* Ajusta a altura do carrossel */
-  }
+.carousel img {
+  width: 100%;
+  border-radius: 10px;
 }
 
-/* Para telas muito pequenas */
-@media (max-width: 480px) {
-  .carousel-container {
-    width: 95%; /* Ajusta a largura para 95% da tela */
-  }
-
-  .carousel {
-    height: 400px; /* Ajusta a altura do carrossel */
-  }
-}
-/* Botões do carrossel */
 .carousel-button {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
   background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: #fff;
   border: none;
-  font-size: 24px; /* Tamanho dos botões ajustado */
+  font-size: 20px;
   cursor: pointer;
-  padding: 10px; /* Padding ajustado */
-  z-index: 1001;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Botões de navegação */
 .carousel-button.left {
   left: 10px;
 }
@@ -80,17 +51,11 @@ table {
   right: 10px;
 }
 
-/* Botão de fechar */
 .carousel-button.close {
-  top: 10%;
+  top: 10px;
   right: 10px;
-  font-size: 28px; /* Tamanho do botão de fechar ajustado */
+  background: red;
 }
-
-.carousel-button:hover {
-  background-color: rgba(243, 12, 12, 0.8);
-}
-
 /* Transição para o contêiner do carrossel ao ser exibido */
 .carousel-container.show {
   display: flex;
@@ -233,7 +198,8 @@ button:hover {
   margin-bottom: 10px;
   border-radius: 4px;
   background-color: #F9F9F9;
-  max-height: 200px;
+  max-height: 100px;
+  
   
 }
 
@@ -255,6 +221,7 @@ button:hover {
 .message.bot {
   background-color: #F8D7DA;
   border-color: #F5C2C7;
+
 }
 
 .delete-icon {
@@ -350,5 +317,4 @@ button:hover {
   display: flex;
   margin-top: 10px;
 }
-
 
