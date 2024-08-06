@@ -8,6 +8,8 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
+  console.log("Tentando fazer login com o usuário:", username);
+
   try {
     const response = await fetch("https://hmlg.portalbeneficiocerto.com.br/chat_certo/sessions", {
       method: "POST",
@@ -34,7 +36,7 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
 
   } catch (error) {
     console.error("Failed to login:", error.message);
-    alert("Falha ao fazer login, tente novamente! ");
+    alert("Falha ao fazer login, tente novamente!");
   }
 });
 
@@ -44,6 +46,8 @@ document.getElementById("chatForm").addEventListener("submit", async (event) => 
 
   const message = document.getElementById("message").value;
   const token = localStorage.getItem("access_token");
+
+  console.log("Enviando mensagem:", message);
 
   // Mostrar o GIF de carregamento
   document.getElementById("loadingGif").style.display = "block";
@@ -77,10 +81,13 @@ document.getElementById("chatForm").addEventListener("submit", async (event) => 
     };
 
     // Adicionar a mensagem do bot
-    const botMessageContent = data.result ? data.result : " “Infelizmente, sou incapaz de responder a essa pergunta. Se precisar de mais ajuda, estarei à sua disposição! 😊";
+    const botMessageContent = data.result ? data.result : "Infelizmente, sou incapaz de responder a essa pergunta. Se precisar de mais ajuda, estarei à sua disposição! 😊";
+    
+    // Converter resposta para tabela
+    const botMessageTable = convertResponseToTable(botMessageContent);
     const botMessage = {
       type: 'bot',
-      content: botMessageContent
+      content: botMessageTable
     };
 
     // Adicionar as mensagens ao histórico
@@ -95,12 +102,31 @@ document.getElementById("chatForm").addEventListener("submit", async (event) => 
 
   } catch (error) {
     console.error("Failed to send message:", error.message);
-    alert("Falha ao enviar mensagem, tente novamente! ");
-  }  finally {
+    alert("Falha ao enviar mensagem, tente novamente!");
+  } finally {
     // Ocultar o GIF de carregamento
     document.getElementById("loadingGif").style.display = "none";
   }
 });
+
+// Função para converter a resposta em uma tabela HTML
+function convertResponseToTable(response) {
+  // Supondo que a resposta seja uma string CSV
+  const rows = response.split("\n");
+  let tableHTML = "<table>";
+
+  rows.forEach(row => {
+    tableHTML += "<tr>";
+    const columns = row.split(";");
+    columns.forEach(column => {
+      tableHTML += `<td>${column}</td>`;
+    });
+    tableHTML += "</tr>";
+  });
+
+  tableHTML += "</table>";
+  return tableHTML;
+}
 
 // Função para atualizar o div de mensagens com base no histórico
 function updateMessagesDiv() {
@@ -110,7 +136,7 @@ function updateMessagesDiv() {
   messagesHistory.forEach((message) => {
     const messageDiv = document.createElement("div");
     messageDiv.className = `message ${message.type}`;
-    messageDiv.textContent = `${message.type === 'user' ? 'Pergunta: ' : 'Resposta: '}${message.content}`;
+    messageDiv.innerHTML = `${message.type === 'user' ? 'Pergunta: ' : 'Resposta: '}${message.content}`;
 
     const deleteIcon = document.createElement("span");
     deleteIcon.className = "delete-icon";
@@ -119,7 +145,7 @@ function updateMessagesDiv() {
       // Remover a mensagem da visualização atual
       messagesDiv.removeChild(messageDiv);
       deleteIcon.style.position = "absolute";
-      deleteIcon.style.right = "2px"
+      deleteIcon.style.right = "2px";
       deleteIcon.style.top = "2px";
       // Atualiza o histórico (não remove a mensagem do histórico)
       updateHistory();
@@ -138,12 +164,12 @@ function updateHistory() {
   messagesHistory.forEach(message => {
     const messageDiv = document.createElement("div");
     messageDiv.className = `message ${message.type}`;
-    messageDiv.textContent = `${message.type === 'user' ? 'Pergunta: ' : 'Resposta: '}${message.content}`;
+    messageDiv.innerHTML = `${message.type === 'user' ? 'Pergunta: ' : 'Resposta: '}${message.content}`;
     historyContainer.appendChild(messageDiv);
   });
 }
 
-//  clique no botão de histórico
+// Clique no botão de histórico
 document.getElementById("historyButton").addEventListener("click", () => {
   const messagesDiv = document.getElementById("messages");
   const historyContainer = document.getElementById("historyContainer");
@@ -163,7 +189,7 @@ document.getElementById("historyButton").addEventListener("click", () => {
   }
 });
 
-//  clique no botão de logout
+// Clique no botão de logout
 document.getElementById("logoutButton").addEventListener("click", () => {
   // Remove o token de acesso do localStorage
   localStorage.removeItem("access_token");
@@ -180,8 +206,60 @@ document.getElementById("logoutButton").addEventListener("click", () => {
   // Exibe o container de login e oculta o container de chat
   document.getElementById("loginContainer").style.display = "block";
   document.getElementById("chatContainer").style.display = "none";
+});
 
-  // Limpa a área de mensagens
-  const messagesDiv = document.getElementById("messages");
-  messagesDiv.innerHTML = "";
+// Clique no botão de exportar CSV
+document.getElementById("exportCsvButton").addEventListener("click", () => {
+  let csvContent = "data:text/csv;charset=utf-8,";
+
+  messagesHistory.forEach((message) => {
+    if (message.type === 'bot') { // Exportar apenas respostas da API
+      const formattedContent = message.content.replace(/<table>/g, '')
+                                              .replace(/<\/table>/g, '')
+                                              .replace(/<tr>/g, '')
+                                              .replace(/<\/tr>/g, '\n')
+                                              .replace(/<td>/g, '')
+                                              .replace(/<\/td>/g, ';')
+                                              .replace(/\n+/g, '\n')
+                                              .trim();
+      csvContent += `${formattedContent.replace(/\n/g, ' ').replace(/;/g, ',')}\n`;
+    }
+  });
+
+  
+
+  link.click();
+  document.body.removeChild(link);
+});
+const encodedUri = encodeURI(csvContent);
+  const link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "chat_history.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+// Exibir o carrossel com as imagens de exemplo
+document.getElementById("plaquinhaGif").addEventListener("click", () => {
+  document.getElementById("carousel").style.display = "flex";
+});
+// Fechar o carrossel
+document.getElementById("closeButton").addEventListener("click", () => {
+  document.getElementById("carousel").style.display = "none";
+});
+// Navegar pelas imagens do carrossel
+let currentIndex = 0;
+const images = [
+  document.getElementById("apresentaGif"),
+  document.getElementById("exemplosGif")
+];
+document.getElementById("prevButton").addEventListener("click", () => {
+  images[currentIndex].style.display = "none";
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  images[currentIndex].style.display = "block";
+});
+document.getElementById("nextButton").addEventListener("click", () => {
+  images[currentIndex].style.display = "none";
+  currentIndex = (currentIndex + 1) % images.length;
+  images[currentIndex].style.display = "block";
 });
