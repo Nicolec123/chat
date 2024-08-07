@@ -11,7 +11,7 @@ table td {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Adiciona esta linha para garantir que o carrossel esteja no topo */
+  z-index: 1000; 
 }
 .carousel {
   position: relative;
@@ -55,11 +55,11 @@ table td {
 .carousel-container.show {
   display: flex;
   opacity: 1;
-  transition: opacity 0.3s ease; /* Adiciona uma transição suave */
+  transition: opacity 0.3s ease; 
 }
 .carousel-container.hide {
   opacity: 0;
-  transition: opacity 0.3s ease; /* Adiciona uma transição suave */
+  transition: opacity 0.3s ease; 
 }
 #loadingGif {
   position: fixed;
@@ -67,7 +67,7 @@ table td {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000; /* Garante que o GIF fique sobre outros elementos */
-  display: none; /* Inicialmente oculto */
+  display: none; 
 }
 .logo {
   display: block;
@@ -104,27 +104,27 @@ body {
   display: flex;
   flex-direction: column;
   overflow: auto;
-  max-width: 850px; /* Aumente o valor conforme necessário */
+  max-width: 850px; 
 }
 #logoPlaquinhaContainer {
   display: flex;
-  align-items: center; /* Alinha verticalmente no centro */
-  justify-content: center; /* Alinha horizontalmente no centro */
-  position: relative; /* Para posicionar a plaquinha no contêiner */
+  align-items: center; 
+  justify-content: center; 
+  position: relative; 
 }
 /* Estilo para a plaquinha */
 #plaquinhaGif {
-  width: 80px; /* Ajuste a largura conforme necessário */
-  height: auto; /* Mantém a proporção */
-  position: absolute; /* Para posicionamento relativo ao contêiner */
-  right: 10px; /* Ajuste a posição no canto direito */
+  width: 80px; /
+  height: auto;
+  position: absolute; 
+  right: 10px; 
   cursor: pointer;
 }
 /* Estilo para o logo */
 .chat-logo {
-  width: 25%; /* Ajuste conforme necessário */
-  height: auto; /* Mantém a proporção do logo */
-  margin: 0 auto; /* Centraliza horizontalmente no contêiner */
+  width: 25%; 
+  height: auto; 
+  margin: 0 auto; 
 }
 #loginForm,
 #chatForm {
@@ -209,10 +209,10 @@ button:hover {
 }
 .button-container {
   display: flex;
-  justify-content: space-between; /* Ajusta o espaçamento entre os botões */
-  margin-top: 10px; /* Ajusta a margem conforme necessário */
-  padding: 0 10px; /* Espaço interno para evitar que os botões fiquem colados nas bordas */
-  align-items: center; /* Alinha verticalmente os botões no centro */
+  justify-content: space-between; 
+  margin-top: 10px; 
+  padding: 0 10px; 
+  align-items: center; 
 }
 #logoutButton {
   padding: 10px;
@@ -251,7 +251,7 @@ button:hover {
   font-size: 16px;
   transition: background-color 0.3s ease;
   /* Remove o margin-left fixo */
-  margin-left: 10px; /* Ajuste conforme necessário */
+  margin-left: 10px; 
 }
 #historyButton:hover {
   background-color: #5a6268;
