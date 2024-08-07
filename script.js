@@ -172,8 +172,11 @@ document.getElementById("logoutButton").addEventListener("click", () => {
   // Remove o token de acesso do localStorage
   localStorage.removeItem("access_token")
 
+  // Remove o histórico de mensagens do localStorage
+  localStorage.removeItem("messagesHistory")
+
   // Limpa o histórico de mensagens
-  let messagesHistory = []
+  messagesHistory = []
   const historyContainer = document.getElementById("historyContainer")
   historyContainer.innerHTML = ""
 
@@ -216,3 +219,4 @@ document.getElementById("nextButton").addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % images.length
   images[currentIndex].style.display = "block"
 })
+
