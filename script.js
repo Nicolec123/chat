@@ -220,3 +220,4 @@ document.getElementById("nextButton").addEventListener("click", () => {
   images[currentIndex].style.display = "block"
 })
 
+
