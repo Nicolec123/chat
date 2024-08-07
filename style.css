@@ -11,8 +11,8 @@ table td {
   display: none;
   justify-content: center;
   align-items: center;
+  z-index: 1000; /* Adiciona esta linha para garantir que o carrossel esteja no topo */
 }
-
 .carousel {
   position: relative;
   width: 80%;
@@ -21,12 +21,10 @@ table td {
   padding: 10px;
   border-radius: 10px;
 }
-
 .carousel img {
   width: 100%;
   border-radius: 10px;
 }
-
 .carousel-button {
   position: absolute;
   top: 50%;
@@ -42,15 +40,12 @@ table td {
   align-items: center;
   justify-content: center;
 }
-
 .carousel-button.left {
   left: 10px;
 }
-
 .carousel-button.right {
   right: 10px;
 }
-
 .carousel-button.close {
   top: 10px;
   right: 10px;
@@ -62,12 +57,10 @@ table td {
   opacity: 1;
   transition: opacity 0.3s ease; /* Adiciona uma transição suave */
 }
-
 .carousel-container.hide {
   opacity: 0;
   transition: opacity 0.3s ease; /* Adiciona uma transição suave */
 }
-
 #loadingGif {
   position: fixed;
   top: 50%;
@@ -76,30 +69,25 @@ table td {
   z-index: 1000; /* Garante que o GIF fique sobre outros elementos */
   display: none; /* Inicialmente oculto */
 }
-.logo{
-  
-    display: block;
-    margin: 0 auto 20px;
-    width: 55%; 
-    height: auto;
-  
+.logo {
+  display: block;
+  margin: 0 auto 20px;
+  width: 55%;
+  height: auto;
 }
-
 body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0,7%;
-  background-color: #F0F0F0;
+  margin: 0, 7%;
+  background-color: #f0f0f0;
   overflow: visible;
-
 }
-
 #loginContainer,
 #chatContainer {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -107,29 +95,23 @@ body {
   max-width: 400px;
   display: flex;
   flex-direction: column;
-
 }
-
 #loginContainer {
-  height: auto; 
+  height: auto;
 }
-
 #chatContainer {
-  height:auto; 
+  height: auto;
   display: flex;
   flex-direction: column;
   overflow: auto;
   max-width: 850px; /* Aumente o valor conforme necessário */
-
 }
-
 #logoPlaquinhaContainer {
   display: flex;
   align-items: center; /* Alinha verticalmente no centro */
   justify-content: center; /* Alinha horizontalmente no centro */
   position: relative; /* Para posicionar a plaquinha no contêiner */
 }
-
 /* Estilo para a plaquinha */
 #plaquinhaGif {
   width: 80px; /* Ajuste a largura conforme necessário */
@@ -138,29 +120,24 @@ body {
   right: 10px; /* Ajuste a posição no canto direito */
   cursor: pointer;
 }
-
 /* Estilo para o logo */
 .chat-logo {
   width: 25%; /* Ajuste conforme necessário */
   height: auto; /* Mantém a proporção do logo */
   margin: 0 auto; /* Centraliza horizontalmente no contêiner */
 }
-
 #loginForm,
 #chatForm {
   display: flex;
   flex-direction: column;
 }
-
 h2 {
   text-align: center;
   margin-bottom: 20px;
- color: rgb(93, 112, 121);
- margin-top: 0.5%;
- font-size: 25.6px;
-
+  color: rgb(93, 112, 121);
+  margin-top: 0.5%;
+  font-size: 25.6px;
 }
-
 input {
   margin: 10px 0;
   padding: 10px;
@@ -168,13 +145,11 @@ input {
   border-radius: 4px;
   font-size: 16px;
 }
-
 input:focus {
-  border-color: #007BFF;
+  border-color: #007bff;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
-
 button {
   padding: 10px;
   border: none;
@@ -185,11 +160,9 @@ button {
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
-
 button:hover {
   background-color: rgb(247, 106, 30);
 }
-
 #messagesContainer {
   flex-grow: 1;
   overflow-y: scroll !important;
@@ -197,33 +170,26 @@ button:hover {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 4px;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   max-height: 100px;
-  
-  
 }
-
 .message {
   padding: 10px;
   margin: 5px 0;
   border: 1px solid #ddd;
   border-radius: 4px;
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
   font-size: 14px;
   position: relative;
 }
-
 .message.user {
-  background-color: #D1E7DD;
-  border-color: #BADBCC;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
 }
-
 .message.bot {
-  background-color: #F8D7DA;
-  border-color: #F5C2C7;
-
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
 }
-
 .delete-icon {
   position: absolute;
   top: 1%;
@@ -231,17 +197,16 @@ button:hover {
   transform: translateY(-50%);
   width: 17px;
   height: 17px;
-  background-color: #C82333;
+  background-color: #c82333;
   border: 1px solid #000;
   border-radius: 50%;
   text-align: center;
-  line-height: 17px; 
+  line-height: 17px;
   cursor: pointer;
-  font-size: 12px; 
+  font-size: 12px;
   font-weight: bold;
-  color: #FFF;
+  color: #fff;
 }
-  
 .button-container {
   display: flex;
   justify-content: space-between; /* Ajusta o espaçamento entre os botões */
@@ -249,42 +214,37 @@ button:hover {
   padding: 0 10px; /* Espaço interno para evitar que os botões fiquem colados nas bordas */
   align-items: center; /* Alinha verticalmente os botões no centro */
 }
-
 #logoutButton {
   padding: 10px;
   border: none;
-  background-color: #DC3545;
+  background-color: #dc3545;
   color: white;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
-  margin-top: 10px;
+  margin-top: -2px; /* Ajusta este valor para mover o botão para cima */
 }
-
 #logoutButton:hover {
-  background-color: #C82333;
+  background-color: #c82333;
 }
-
 #logoutButton {
   padding: 10px;
   border: none;
-  background-color: #DC3545;
+  background-color: #dc3545;
   color: white;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
-
 #logoutButton:hover {
-  background-color: #C82333;
+  background-color: #c82333;
 }
-
 #historyButton {
   padding: 10px;
   border: none;
-  background-color: #6C757D;
+  background-color: #6c757d;
   color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -294,25 +254,22 @@ button:hover {
   margin-left: 10px; /* Ajuste conforme necessário */
 }
 #historyButton:hover {
-  background-color: #5A6268;
+  background-color: #5a6268;
 }
-
 #historyButton.active {
-  background-color: #0056b3; 
-  border: 2px solid #004085; 
-  color: #e0e0e0; 
+  background-color: #0056b3;
+  border: 2px solid #004085;
+  color: #e0e0e0;
 }
-
 #historyContainer {
   display: none;
   overflow-y: auto;
   max-height: 300px;
 }
-
-#chatContainer form, #chatContainer button {
-  flex-shrink: 0; 
+#chatContainer form,
+#chatContainer button {
+  flex-shrink: 0;
 }
-
 #chatForm {
   display: flex;
   margin-top: 10px;
