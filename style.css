@@ -80,6 +80,13 @@ table td {
   width: 55%;
   height: auto;
 }
+.logo1 {
+  display: block;
+  margin: 0 auto 20px;
+  width: 55%;
+  height: auto;
+}
+
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -217,6 +224,7 @@ button:hover {
   margin-right: 5%;
   margin-bottom: 5px;
   border: 2px solid  #FF4E00;
+  padding: 0 10px
 
 
 
@@ -306,6 +314,4 @@ button:hover {
   display: flex;
   margin-top: 10px;
 }
-
-
 
