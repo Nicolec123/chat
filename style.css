@@ -127,11 +127,12 @@ body {
 }
 /* Estilo para a plaquinha */
 #plaquinhaGif {
-  width: 80px; /* Ajuste a largura conforme necessário */
+  width: 77px; /* Ajuste a largura conforme necessário */
   height: auto; /* Mantém a proporção */
   position: absolute; /* Para posicionamento relativo ao contêiner */
   right: 10px; /* Ajuste a posição no canto direito */
   cursor: pointer;
+  margin-bottom: -22px; /* diminui a ditancia da plaquinha para os inputs*/
 }
 /* Estilo para o logo */
 .chat-logo {
