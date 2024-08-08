@@ -1,6 +1,8 @@
 table td {
   padding: 10px; /* Adiciona 10px de espaçamento dentro das células */
+ 
 }
+
 .carousel-container {
   position: fixed;
   top: 0;
@@ -11,7 +13,7 @@ table td {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 1000; 
+  z-index: 1000; /* carrossel esteja no topo */
 }
 .carousel {
   position: relative;
@@ -59,7 +61,10 @@ table td {
 }
 .carousel-container.hide {
   opacity: 0;
-  transition: opacity 0.3s ease; 
+  transition: opacity 0.3s ease; /
+  
+
+
 }
 #loadingGif {
   position: fixed;
@@ -67,7 +72,7 @@ table td {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000; /* Garante que o GIF fique sobre outros elementos */
-  display: none; 
+  display: none; /* Inicialmente oculto */
 }
 .logo {
   display: block;
@@ -104,27 +109,28 @@ body {
   display: flex;
   flex-direction: column;
   overflow: auto;
-  max-width: 850px; 
+  max-width: 850px;
+  flex-grow: 1;
 }
 #logoPlaquinhaContainer {
   display: flex;
-  align-items: center; 
-  justify-content: center; 
-  position: relative; 
+  align-items: center; /* Alinha verticalmente no centro */
+  justify-content: center; /* Alinha horizontalmente no centro */
+  position: relative; /* Para posicionar a plaquinha no contêiner */
 }
 /* Estilo para a plaquinha */
 #plaquinhaGif {
-  width: 80px; /
-  height: auto;
-  position: absolute; 
-  right: 10px; 
+  width: 80px; /* Ajuste a largura conforme necessário */
+  height: auto; /* Mantém a proporção */
+  position: absolute; /* Para posicionamento relativo ao contêiner */
+  right: 10px; /* Ajuste a posição no canto direito */
   cursor: pointer;
 }
 /* Estilo para o logo */
 .chat-logo {
   width: 25%; 
   height: auto; 
-  margin: 0 auto; 
+  margin: 0 auto; /* Centraliza horizontalmente no contêiner */
 }
 #loginForm,
 #chatForm {
@@ -164,8 +170,9 @@ button:hover {
   background-color: rgb(247, 106, 30);
 }
 #messagesContainer {
-  flex-grow: 1;
-  overflow-y: scroll !important;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
@@ -173,6 +180,7 @@ button:hover {
   background-color: #f9f9f9;
   max-height: 100px;
 }
+
 .message {
   padding: 10px;
   margin: 5px 0;
@@ -181,14 +189,38 @@ button:hover {
   background-color: #f1f1f1;
   font-size: 14px;
   position: relative;
+  flex-grow: 0;
+  flex-basis: auto;
+
+
+
 }
+
 .message.user {
-  background-color: #d1e7dd;
-  border-color: #badbcc;
+  background-color:#7A7A7A;
+  border-color: #7A7A7A;
+  border-radius: 12px;
+  color: white;
+  border: 2px solid #7A7A7A;
+  width: max-content;
+
 }
+
 .message.bot {
-  background-color: #f8d7da;
-  border-color: #f5c2c7;
+  background-color: #FF4E00;
+  border-color: #FF4E00;
+  left: 48%;
+  border-radius: 12px;
+  color: white;
+  width: max-content;
+  margin-left: -12%;
+  margin-right: 5%;
+  margin-bottom: 5px;
+  border: 2px solid  #FF4E00;
+
+
+
+
 }
 .delete-icon {
   position: absolute;
@@ -209,10 +241,10 @@ button:hover {
 }
 .button-container {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between; /* Ajusta o espaçamento entre os botões */
   margin-top: 10px; 
-  padding: 0 10px; 
-  align-items: center; 
+  padding: 0 10px; /* Espaço interno para evitar que os botões fiquem colados nas bordas */
+  align-items: center; /* Alinha verticalmente os botões no centro */
 }
 #logoutButton {
   padding: 10px;
@@ -223,7 +255,7 @@ button:hover {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
-  margin-top: -2px; /* Ajusta este valor para mover o botão para cima */
+  margin-top: -2px; 
 }
 #logoutButton:hover {
   background-color: #c82333;
@@ -274,4 +306,6 @@ button:hover {
   display: flex;
   margin-top: 10px;
 }
+
+
 
