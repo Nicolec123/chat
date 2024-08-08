@@ -27,6 +27,10 @@ document
       localStorage.setItem("access_token", data.access_token)
       document.getElementById("loginContainer").style.display = "none"
       document.getElementById("chatContainer").style.display = "block"
+      
+      // Esse é o carrossel que aparece automaticamente ao fazer o login e entrar na tela de chat
+      document.getElementById("carousel").style.display = "flex"  /* isso é responável por ele aparecer*/ 
+      
       // Atualiza o histórico com as mensagens armazenadas
       updateHistory()
     } catch (error) {
@@ -70,7 +74,7 @@ document
       // Adicionar a mensagem do bot
       const botMessageContent = data.result
         ? data.result
-        : "Infelizmente, sou incapaz de responder a essa pergunta. Se precisar de mais ajuda, estarei à sua disposição! :feliz:"
+        : "Infelizmente, sou incapaz de responder a esta pergunta. Caso precise de mais assistência, estarei à sua disposição!:)"
       // Converter resposta para tabela
       const botMessageTable = convertResponseToTable(botMessageContent)
       const botMessage = {
@@ -197,7 +201,7 @@ document.getElementById("logoutButton").addEventListener("click", () => {
 })
 // Exibir o carrossel com as imagens de exemplo
 document.getElementById("plaquinhaGif").addEventListener("click", () => {
-  document.getElementById("carousel").style.display = "flex"
+  document.getElementById("carousel").style.display = "flex" /* isso é responável por ele aparecer*/ 
 })
 // Fechar o carrossel
 document.getElementById("closeButton").addEventListener("click", () => {
@@ -219,5 +223,7 @@ document.getElementById("nextButton").addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % images.length
   images[currentIndex].style.display = "block"
 })
+
+
 
 
