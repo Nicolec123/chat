@@ -26,7 +26,7 @@ document
       console.log("Login response:", data)
       localStorage.setItem("access_token", data.access_token)
       document.getElementById("loginContainer").style.display = "none"
-      document.getElementById("chatContainer").style.display = "block"
+      document.getElementById("home-container").style.display = "block"
       
       // Esse é o carrossel que aparece automaticamente ao fazer o login e entrar na tela de chat
       document.getElementById("carousel").style.display = "flex"  /* isso é responável por ele aparecer*/ 
@@ -195,9 +195,10 @@ document.getElementById("logoutButton").addEventListener("click", () => {
   const messagesContainer = document.getElementById("messages")
   messagesContainer.innerHTML = ""
 
+
   // Exibe o container de login e oculta o container de chat
   document.getElementById("loginContainer").style.display = "block"
-  document.getElementById("chatContainer").style.display = "none"
+  document.getElementById("home-container").style.display = "none"
 })
 // Exibir o carrossel com as imagens de exemplo
 document.getElementById("plaquinhaGif").addEventListener("click", () => {
@@ -223,7 +224,6 @@ document.getElementById("nextButton").addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % images.length
   images[currentIndex].style.display = "block"
 })
-
 
 
 
