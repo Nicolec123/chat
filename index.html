@@ -7,68 +7,51 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <body>
-    <!-- Container de Login -->
-    <div id="loginContainer">
-      <img src="logo.png" alt="Logo" class="logo">
-      <h2>Login</h2>
-      <form id="loginForm">
-        <input type="text" id="username" placeholder="Usuário" required>
-        <input type="password" id="password" placeholder="Senha" required>
-        <button type="submit">Login</button>
-      </form>
-    </div>
-    <!--Container chat-->
-    <div id="home-container" style="display: none">
-      <div id="chatContainer">
-        <div id="logoPlaquinhaContainer">
-          <img src="logo1.png" alt="Logo" class="logo chat-logo" />
-          <img src="odaplaquinha2.jpg.png" id="plaquinhaGif" alt="plaquinha" />
+  <!-- Container de Login -->
+  <div id="loginContainer">
+    <img src="logo.png" alt="Logo" class="logo">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Usuário" required>
+      <input type="password" id="password" placeholder="Senha" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <!-- Container de Chat -->
+  <div id="home-container" style="display: none;">
+    <div id="chatContainer">
+      <div id="logoPlaquinhaContainer">
+        <img src="logo1.png" alt="Logo" class="logo chat-logo" />
+        <img src="odaplaquinha2.jpg.png" id="plaquinhaGif" alt="plaquinha" />
+      </div>
+      <div class="chat-content">
+        <h2 class="notranslate" translate="no">Chat Certo!</h2>
+        <div id="messagesContainer">
+          <div id="messages"></div>
         </div>
-        <div class="chat-content" style="display: flex">
-          <h2 class="notranslate" translate="no">Chat Certo!</h2>
-          <div id="messagesContainer">
-            <div id="messages"></div>
-          </div>
-          <form id="chatForm">
-            <input
-              type="text"
-              id="message"
-              placeholder="Digite sua mensagem"
-              required
-            />
-            <button type="submit">Enviar</button>
-          </form>
-          <div class="button-container">
-            <button id="logoutButton">Sair</button>
-            <button id="historyButton">Mostrar Histórico</button>
-          </div>
-        </div>
-        <div class="carousel-container" id="carousel">
-          <div class="carousel">
-            <img src="oqueseapresenta.gif" id="apresentaGif" alt="apresenta" />
-            <img
-              src="exemplos.gif"
-              id="exemplosGif"
-              alt="exemplos"
-              style="display: none"
-            />
-            <button class="carousel-button left" id="prevButton">❮</button>
-            <button class="carousel-button right" id="nextButton">❯</button>
-            <button class="carousel-button close" id="closeButton">X</button>
-          </div>
-        </div>
-        <div id="historyContainer" style="display: none">
-          <!-- Histórico das mensagens será exibido aqui -->
+        <form id="chatForm">
+          <input type="text" id="message" placeholder="Digite sua mensagem" required />
+          <button type="submit">Enviar</button>
+        </form>
+        <div class="button-container">
+          <button id="logoutButton">Sair</button>
+          <button id="deleteAllButton">Deletar mensagens</button>
         </div>
       </div>
-      <img
-        id="loadingGif"
-        src="loading.gif"
-        alt="Loading"
-        style="display: none"
-      />
+      <div class="carousel-container" id="carousel">
+        <div class="carousel">
+          <img src="oqueseapresenta.gif" id="apresentaGif" alt="apresenta" />
+          <img src="exemplos.gif" id="exemplosGif" alt="exemplos" style="display: none" />
+          <button class="carousel-button left" id="prevButton">❮</button>
+          <button class="carousel-button right" id="nextButton">❯</button>
+          <button class="carousel-button close" id="closeButton">X</button>
+        </div>
+      </div>
+      <img id="loadingGif" src="loading.gif" alt="Loading" style="display: none" />
     </div>
-    <script src="script.js"></script>
-  </body>
-  </html>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
