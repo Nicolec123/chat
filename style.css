@@ -297,13 +297,14 @@ button:hover {
   transition: background-color 0.3s ease;
   /* Remove o margin-left fixo */
   margin-left: 10px;
-}
-#deleteAllButton {
   background-color: #5A6268;
-}
-#deleteAllButton {
   color: #E0E0E0;
+
 }
+#deleteAllButton:hover{
+  background-color: #C82333;
+}
+
 
 #chatContainer form,
 #chatContainer button {
