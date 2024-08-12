@@ -286,7 +286,7 @@ button:hover {
 #logoutButton:hover {
   background-color: #C82333;
 }
-#historyButton {
+#deleteAllButton{
   padding: 10px;
   border: none;
   background-color: #6C757D;
@@ -298,19 +298,13 @@ button:hover {
   /* Remove o margin-left fixo */
   margin-left: 10px;
 }
-#historyButton:hover {
+#deleteAllButton {
   background-color: #5A6268;
 }
-#historyButton.active {
-  background-color: #0056B3;
-  border: 2px solid #004085;
+#deleteAllButton {
   color: #E0E0E0;
 }
-#historyContainer {
-  display: none;
-  overflow-y: auto;
-  max-height: 300px;
-}
+
 #chatContainer form,
 #chatContainer button {
   flex-shrink: 0;
@@ -330,4 +324,3 @@ button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-left: 1px;
 }
-
