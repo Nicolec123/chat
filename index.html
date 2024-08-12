@@ -18,37 +18,56 @@
         <button type="submit">Login</button>
       </form>
     </div>
-  <!--Container chat-->
-    <div id="chatContainer" style="display: none">
-      <div id="logoPlaquinhaContainer">
-    <img src="logo1.png" alt="Logo" class="logo chat-logo">
-        <img src="odaplaquinha2.gif" id="plaquinhaGif" alt="plaquinha">
-    </div>
-      <div class="carousel-container" id="carousel">
-        <div class="carousel">
-          <img src="oqueseapresenta.gif" id="apresentaGif" alt="apresenta">
-          <img src="exemplos.gif" id="exemplosGif" alt="exemplos" style="display: none;">
-          <button class="carousel-button left" id="prevButton">❮</button>
-          <button class="carousel-button right" id="nextButton">❯</button>
-          <button class="carousel-button close" id="closeButton">X</button>
+    <!--Container chat-->
+    <div id="home-container" style="display: none">
+      <div id="chatContainer">
+        <div id="logoPlaquinhaContainer">
+          <img src="logo1.png" alt="Logo" class="logo chat-logo" />
+          <img src="odaplaquinha2.jpg.png" id="plaquinhaGif" alt="plaquinha" />
+        </div>
+        <div class="chat-content" style="display: flex">
+          <h2 class="notranslate" translate="no">Chat Certo!</h2>
+          <div id="messagesContainer">
+            <div id="messages"></div>
+          </div>
+          <form id="chatForm">
+            <input
+              type="text"
+              id="message"
+              placeholder="Digite sua mensagem"
+              required
+            />
+            <button type="submit">Enviar</button>
+          </form>
+          <div class="button-container">
+            <button id="logoutButton">Sair</button>
+            <button id="historyButton">Mostrar Histórico</button>
+          </div>
+        </div>
+        <div class="carousel-container" id="carousel">
+          <div class="carousel">
+            <img src="oqueseapresenta.gif" id="apresentaGif" alt="apresenta" />
+            <img
+              src="exemplos.gif"
+              id="exemplosGif"
+              alt="exemplos"
+              style="display: none"
+            />
+            <button class="carousel-button left" id="prevButton">❮</button>
+            <button class="carousel-button right" id="nextButton">❯</button>
+            <button class="carousel-button close" id="closeButton">X</button>
+          </div>
+        </div>
+        <div id="historyContainer" style="display: none">
+          <!-- Histórico das mensagens será exibido aqui -->
         </div>
       </div>
-      <h2 class="notranslate" translate="no">Chat Certo!</h2>
-      <div id="messagesContainer">
-        <div id="messages"></div>
-      </div>
-      <form id="chatForm">
-        <input type="text" id="message" placeholder="Digite sua mensagem " required>
-        <button type="submit">Enviar</button>
-      </form>
-      <div class="button-container">
-        <button id="logoutButton">Sair</button>
-        <button id="historyButton">Mostrar Histórico</button>
-      </div>
-      <div id="historyContainer" style="display: none">
-        <!-- Histórico das mensagens será exibido aqui -->
-      </div>
-      <img id="loadingGif" src="loading.gif" alt="Loading" style="display: none;">
+      <img
+        id="loadingGif"
+        src="loading.gif"
+        alt="Loading"
+        style="display: none"
+      />
     </div>
     <script src="script.js"></script>
   </body>
