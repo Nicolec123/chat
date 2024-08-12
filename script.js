@@ -1,5 +1,6 @@
 // Array para armazenar mensagens do chat
 let messagesHistory = []
+
 // Envio do formulário de login
 document
   .getElementById("loginForm")
@@ -29,15 +30,16 @@ document
       document.getElementById("home-container").style.display = "block"
       
       // Esse é o carrossel que aparece automaticamente ao fazer o login e entrar na tela de chat
-      document.getElementById("carousel").style.display = "flex"  /* isso é responável por ele aparecer*/ 
+      document.getElementById("carousel").style.display = "flex"  /* isso é responsável por ele aparecer*/ 
       
       // Atualiza o histórico com as mensagens armazenadas
-      updateHistory()
+      updateMessagesDiv()
     } catch (error) {
       console.error("Failed to login:", error.message)
       alert("Falha ao fazer login, tente novamente!")
     }
   })
+
 // Envio do formulário de chat
 document
   .getElementById("chatForm")
@@ -96,6 +98,7 @@ document
       document.getElementById("loadingGif").style.display = "none"
     }
   })
+
 // Função para converter a resposta em uma tabela HTML
 function convertResponseToTable(response) {
   // Supondo que a resposta seja uma string CSV
@@ -112,66 +115,45 @@ function convertResponseToTable(response) {
   tableHTML += "</table>"
   return tableHTML
 }
+
 // Função para atualizar o div de mensagens com base no histórico
 function updateMessagesDiv() {
   const messagesDiv = document.getElementById("messages")
   messagesDiv.innerHTML = ""
-  messagesHistory.forEach((message) => {
+  messagesHistory.forEach((message, index) => {
     const messageDiv = document.createElement("div")
     messageDiv.className = `message ${message.type}`
-    messageDiv.innerHTML = `${
-      message.type === "user" ? "Pergunta: " : "Resposta: "
-    }${message.content}`
+    messageDiv.innerHTML = `${message.type === "user" ? "Pergunta: " : "Resposta: "}${message.content}`
     const deleteIcon = document.createElement("span")
     deleteIcon.className = "delete-icon"
     deleteIcon.textContent = "x"
     deleteIcon.onclick = () => {
-      // Remover a mensagem da visualização atual
-      messagesDiv.removeChild(messageDiv)
-      deleteIcon.style.position = "absolute"
-      deleteIcon.style.right = "2px"
-      deleteIcon.style.top = "2px"
-      // Atualiza o histórico (não remove a mensagem do histórico)
-      updateHistory()
+      // Remove a mensagem do histórico
+      messagesHistory.splice(index, 1)
+      // Atualiza o div de mensagens
+      updateMessagesDiv()
     }
     messageDiv.appendChild(deleteIcon)
     messagesDiv.appendChild(messageDiv)
   })
 }
-// Função para atualizar o histórico
-function updateHistory() {
-  const historyContainer = document.getElementById("historyContainer")
-  historyContainer.innerHTML = ""
-  messagesHistory.forEach((message) => {
-    const messageDiv = document.createElement("div")
-    messageDiv.className = `message ${message.type}`
-    messageDiv.innerHTML = `${
-      message.type === "user" ? "Pergunta: " : "Resposta: "
-    }${message.content}`
-    historyContainer.appendChild(messageDiv)
-  })
-}
-// Clique no botão de histórico
-document.getElementById("historyButton").addEventListener("click", () => {
-  const messagesDiv = document.getElementById("messages")
-  const historyContainer = document.getElementById("historyContainer")
-  const historyButton = document.getElementById("historyButton")
-  if (
-    messagesDiv.style.display === "none" ||
-    messagesDiv.style.display === ""
-  ) {
-    messagesDiv.style.display = "block"
-    historyContainer.style.display = "none"
-    historyButton.classList.remove("active")
-  } else {
-    messagesDiv.style.display = "none"
-    historyContainer.style.display = "block"
-    historyButton.classList.add("active")
-    // Atualiza o histórico com as mensagens atuais
-    updateHistory()
+// Função para deletar todas as mensagens
+function deleteAllMessages() {
+  // um alerta de confirmação
+  const userConfirmed = confirm("Você tem certeza de que deseja apagar todas as mensagens? Esta ação não pode ser desfeita.")
+  if (userConfirmed) {
+    const messagesDiv = document.getElementById("messages")
+    messagesDiv.innerHTML = ""
+    messagesHistory = []
   }
+}
+
+// botão de deletar todas as mensagens
+document.getElementById("deleteAllButton").addEventListener("click", () => {
+  deleteAllMessages()
 })
-// Clique no botão de logout
+
+//  botão de logout
 document.getElementById("logoutButton").addEventListener("click", () => {
   // Remove o token de acesso do localStorage
   localStorage.removeItem("access_token")
@@ -181,8 +163,8 @@ document.getElementById("logoutButton").addEventListener("click", () => {
 
   // Limpa o histórico de mensagens
   messagesHistory = []
-  const historyContainer = document.getElementById("historyContainer")
-  historyContainer.innerHTML = ""
+  const messagesContainer = document.getElementById("messages")
+  messagesContainer.innerHTML = ""
 
   // Limpa os campos de login
   document.getElementById("username").value = ""
@@ -191,23 +173,21 @@ document.getElementById("logoutButton").addEventListener("click", () => {
   // Limpa o campo de entrada de mensagem atual
   document.getElementById("message").value = ""
 
-  // Remove mensagens do chat
-  const messagesContainer = document.getElementById("messages")
-  messagesContainer.innerHTML = ""
-
-
   // Exibe o container de login e oculta o container de chat
   document.getElementById("loginContainer").style.display = "block"
   document.getElementById("home-container").style.display = "none"
 })
+
 // Exibir o carrossel com as imagens de exemplo
 document.getElementById("plaquinhaGif").addEventListener("click", () => {
-  document.getElementById("carousel").style.display = "flex" /* isso é responável por ele aparecer*/ 
+  document.getElementById("carousel").style.display = "flex" /* isso é responsável por ele aparecer*/ 
 })
+
 // Fechar o carrossel
 document.getElementById("closeButton").addEventListener("click", () => {
   document.getElementById("carousel").style.display = "none"
 })
+
 // Navegar pelas imagens do carrossel
 let currentIndex = 0
 const images = [
@@ -224,6 +204,3 @@ document.getElementById("nextButton").addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % images.length
   images[currentIndex].style.display = "block"
 })
-
-
-
