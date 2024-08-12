@@ -216,7 +216,7 @@ button:hover {
   position: relative;
   flex-grow: 0;
   flex-basis: auto;
-  margin-left: 4%;
+  margin-left: 10%;
 }
 
 .message.user {
@@ -231,7 +231,7 @@ button:hover {
 .message.bot {
   background-color: #FF4E00;
   border-color: #FF4E00;
-  left: 53%;
+  left: 54%;
   border-radius: 12px;
   color: white;
   width: max-content;
@@ -239,7 +239,8 @@ button:hover {
   margin-right: 5%;
   margin-bottom: 4%;
   border: 2px solid  #FF4E00;
-  padding: 0 10px
+  padding: 0 10px;
+  margin-top:2%;
 
 
 
