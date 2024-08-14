@@ -139,7 +139,8 @@ body {
   
 #logoPlaquinhaContainer {
   width: 40%; /* Ajusta a largura para ocupar 100% da largura disponível */
-  max-width: 33%; /* Limita a largura máxima a 33% da tela */
+  min-width: 20%;
+  max-width: 27%; /* Limita a largura máxima a 33% da tela */
   background-color: #D7CFC8;
   padding: 10px; /* Padding menor para telas pequenas */
   display: flex;
@@ -210,6 +211,7 @@ button:hover {
 #messagesContainer {
   flex-grow: 1;
   overflow-y: auto;
+  overflow-x: auto; /* Permite o scroll horizontal se o conteúdo ultrapassar a largura mínima */
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
@@ -217,8 +219,8 @@ button:hover {
   background-color: #F9F9F9;
   max-height: 500px;
   margin-left: 0%;
+  min-width: 30px; /* Define uma largura mínima para o container */
 }
-
 .message {
   padding: 10px;
   margin: 5px 0;
@@ -243,9 +245,11 @@ button:hover {
   margin-left: auto;
   color: white;
   width: fit-content;
-  max-width: 100%;
   border: 2px solid  #FF4E00;
-  margin-top:2%;
+  margin-top:4%;
+  margin-bottom: 4%;
+  border-radius: 14px;
+  margin-right: 10px; /* Margem à direita para mensagens do bot */
 
 }
 .message.bot table {
@@ -329,4 +333,5 @@ button:hover {
   background-color: #FFFFFF;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 70%;
 }
