@@ -267,7 +267,7 @@ button:hover {
 
 .delete-icon {
   position: absolute;
-  top: 1%;
+  top: 0;
   right: 0px;
   transform: translateY(-50%);
   width: 17px;
