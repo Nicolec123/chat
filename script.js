@@ -79,8 +79,6 @@ document
       
       if (!response.ok) {
         if (response.status === 500) {
-          throw new Error("Chat indisponível no momento, por favor tente mais tarde!")
-        } else {
           throw new Error("Falha ao enviar mensagem, verifique o conteúdo digitado e tente novamente!")
         }
       }
